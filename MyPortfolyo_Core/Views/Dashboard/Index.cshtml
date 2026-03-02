@@ -1,0 +1,210 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+
+        <h4 class="page-title"> <span class="la la-home"></span>&nbsp;Dashboard</h4>
+        <div class="row">
+            <!-- Yapılacaklar Listesi -->
+            <div class="col-4">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <ul class="list-group">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>
+                                        <i class="la la-tasks"></i> Yapılacaklar Listesi
+                                    </span>
+                                    <span>
+                                        @ViewBag.taskPercentage%
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            @foreach (var item in ViewBag.taskList)
+                            {
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <span>
+                                        @if (item.Status == true)
+                                        {
+                                            <i class="la la-check-circle text-success"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="la la-circle-o text-warning"></i>
+                                        }
+                                        @item.Title
+                                    </span>
+                                    <span class="badge @(item.Status == true ? "badge-success" : "badge-warning")">
+                                        @(item.Status == true ? "Tamamlandı" : "Bekliyor")
+                                    </span>
+                                </li>
+                            }
+                        </ul>
+                        <div class="text-center mt-3">
+                            <a href="/ToDoList/Index" class="btn btn-info btn-sm">
+                                Tümünü Gör <i class="la la-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hakkımda bilgisi -->
+            <div class="col-5">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="la la-user"></i> Hakkımda Bilgisi
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p><strong>Başlık:</strong> @ViewBag.aboutInfo.Title</p>
+                                <p><strong>Alt Açıklama:</strong> @ViewBag.aboutInfo.SubDescription</p>
+                                <p><strong>Detaylar:</strong></p>
+                                <p>
+                                    @(ViewBag.aboutInfo.Details != null && ViewBag.aboutInfo.Details.Length > 200
+                                                                        ? ViewBag.aboutInfo.Details.Substring(0, 500) + "..."
+                                                                        : ViewBag.aboutInfo.Details)
+                                </p>
+                                <hr />
+                                <div class="text-center">
+                                    <a href="/About/UpdateAbout/@ViewBag.aboutInfo.AboutId" class="btn btn-primary btn-sm">
+                                        <i class="la la-edit"></i> Düzenle
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hızlı İşlemler kısmı -->
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="la la-bolt"></i> Hızlı İşlemler
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <a href="/Portfolio/AddPortfolio" class="btn btn-primary ">
+                                    <i class="la la-plus-circle"></i>
+                                    <span>Yeni Proje Ekle</span>
+                                </a>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <a href="/Message/Inbox" class="btn btn-success ">
+                                    <i class="la la-envelope"></i>
+                                    <span>Mesajları Gör</span>
+                                </a>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <a href="/Skill/CreateSkill" class="btn btn-warning ">
+                                    <i class="la la-star"></i>
+                                    <span>Yeni Yetenek</span>
+                                </a>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <a href="/Experience/CreateExperience" class="btn btn-info ">
+                                    <i class="la la-graduation-cap"></i>
+                                    <span>Deneyim Ekle</span>
+                                </a>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                                <a href="/Testimonial/AddTestimonial" class="btn btn-danger ">
+                                    <i class="la la-comments"></i>
+                                    <span>Referans Ekle</span>
+                                </a>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                <a href="/Statistic/Index" class="btn btn-secondary ">
+                                    <i class="la la-bar-chart"></i>
+                                    <span>İstatistikler</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .btn-block {
+            padding: 15px;
+            text-align: center;
+        }
+
+            .btn-block i {
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+
+            .btn-block span {
+                font-size: 12px;
+                display: block;
+            }
+
+        /* Kartların yüksekliklerini eşitle */
+        .content .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+            .content .row > [class*='col-'] {
+                display: flex;
+                flex-direction: column;
+            }
+
+        .content .card {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .content .card-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Tablo ve liste alanlarını genişlet */
+        .table-responsive {
+            flex: 1;
+        }
+
+        .list-group {
+            flex: 1;
+        }
+
+        /* Alt butonları en alta yasla */
+        .card-body .text-center:last-child {
+            margin-top: auto;
+            padding-top: 15px;
+        }
+
+        /* Boş içerik durumunda kartları ortala */
+        .card-body > p.text-center {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hakkımda kartı için özel düzenleme */
+        .card-body > div > .col-md-12 {
+            display: flex;
+        }
+    </style>
