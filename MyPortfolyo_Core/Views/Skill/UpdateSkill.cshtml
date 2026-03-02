@@ -1,0 +1,30 @@
+﻿@model Skill
+@{
+    ViewData["Title"] = "UpdateSkill";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Deneyim Güncelle</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post">
+                            <input type="hidden" asp-for="SkillId" />
+                            <label>Yetenek Adı</label>
+                            <input type="text" asp-for="Title" class="form-control text-uppercase" />
+                            <br />
+                            <label>Yetenek Seviyesi:</label>
+                            <input type="number" class="form-control" min="0" max="100" step="5" asp-for="Value" />
+                            <br />
+                            <button class="btn btn-success">Güncelle</button>&nbsp;&nbsp;
+                            <a asp-controller="Skill" asp-action="ListSkills" class="btn btn-secondary">Geri Dön</a><br />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@model Experience
+@{
+    ViewData["Title"] = "CreateExperience";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Deneyim Ekle</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post">
+                            <label>Firma Bilgisi</label>
+                            <input type="text" asp-for="Head" class="form-control"/>
+                            <br />
+                            <label>Pozisyon Adı</label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+                            <label>Giriş Tarihi</label>
+                            <input type="date" asp-for="StartDate" class="form-control" />
+                            <br />
+                            <label>Çıkış Tarihi</label>
+                            <input type="date" asp-for="EndDate" class="form-control" />
+                            <br />
+                            <label>Açıklama</label>
+                            <textarea rows="4" class="form-control" asp-for="Description"></textarea>
+                            <br />
+                            <button class="btn btn-success">Ekle</button>&nbsp;&nbsp;
+                            <a asp-controller="Experience" asp-action="ExperienceList" class="btn btn-secondary">Geri Dön</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

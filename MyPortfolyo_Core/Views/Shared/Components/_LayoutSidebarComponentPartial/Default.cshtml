@@ -1,0 +1,91 @@
+﻿<div class="sidebar">
+	<div class="scrollbar-inner sidebar-wrapper">
+
+		<ul class="nav">
+			<li class="nav-item">
+				<a href="#">
+					<i class="la la-dashboard"></i>
+					<p>Dashboard</p>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="/Default/Index" target="_blank">
+					<i class="la la-home"></i>
+					<p>Siteye Git</p>
+				</a>
+			</li>
+			<li class="nav-item @(ViewBag.CurrentController == "About" ? "active" : "")">
+				<a asp-controller="About" asp-action="Index">
+					<i class="la la-user"></i>
+					<p>Hakkımda</p>
+				</a>
+			</li>
+			<li class="nav-item @(ViewBag.CurrentController == "ToDoList" ? "active" : "")">
+				<a asp-controller="ToDoList" asp-action="Index">
+					<i class="la la-bell"></i>
+					<p>Yapılacaklar</p>
+				</a>
+			</li>
+			<li class="nav-item @(ViewBag.CurrentController == "Experience" ? "active" : "")">
+				<a asp-controller="Experience" asp-action="ExperienceList">
+					<i class="la la-newspaper-o"></i>
+					<p>Deneyimler</p>
+				</a>
+			</li>
+			<li class="nav-item @(ViewBag.CurrentController == "Feature" ? "active" : "")">
+				<a asp-controller="Feature" asp-action="Index">
+					<i class="la la-th"></i>
+					<p>Öne Çıkan Alan</p>
+				</a>
+			</li>
+			<li class="nav-item @(ViewBag.CurrentController == "Contact" ? "active" : "")">
+				<a asp-controller="Contact" asp-action="Index">
+					<i class="la la-comments"></i>
+					<p>İletişim Bilgileri</p>
+				</a>
+			</li>
+			<li class="nav-item @(ViewBag.CurrentController == "Portfolio" ? "active" : "")">
+				<a asp-controller="Portfolio" asp-action="ListPortfolios">
+					<i class="la la-clipboard"></i>
+					<p>Portfolyo</p>
+				</a>
+			</li>
+			<li class="nav-item @(ViewBag.CurrentController == "Skill" ? "active": "")">
+				<a asp-controller="Skill" asp-action="ListSkills">
+					<i class="la la-signal"></i>
+					<p>Yeteneklerim</p>
+				</a>
+			</li>
+			<li class="nav-item @(ViewBag.CurrentController == "Testimonial" ? "active" : "")">
+				<a asp-controller="Testimonial" asp-action="ListTestimonials">
+					<i class="la la-users"></i>
+					<p>Referanslarım</p>
+				</a>
+			</li>
+			<li class ="nav-item @(ViewBag.CurrentController == "SocialMedia" ? "active" : "")">
+				<a asp-controller="SocialMedia" asp-action="ListSocialMedias">
+					<i class="la la-fonticons"></i>
+					<p>Sosyal Medya</p>
+				</a>
+			</li>
+			<li class="nav-item @(ViewBag.CurrentController == "Message" ? "active" : "")">
+				<a asp-controller="Message" asp-action="Inbox">
+					<i class="la la-envelope"></i>
+					<p>Gelen Kutusu</p>
+				</a>
+			</li>
+			<li class="nav-item @(ViewBag.CurrentController == "Statistic" ? "active" : "")">
+				<a asp-controller="Statistic" asp-action="Index">
+					<i class="la la-bar-chart"></i>
+					<p>İstatistikler</p>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a href="icons.html">
+					<i class="la la-sign-out"></i>
+					<p>Çıkış Yap</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

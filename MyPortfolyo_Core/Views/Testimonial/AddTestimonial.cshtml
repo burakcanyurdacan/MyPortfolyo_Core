@@ -1,0 +1,44 @@
+﻿@model Testimonial
+@{
+    ViewData["Title"] = "AddTestimonial";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Referans Ekle</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post">
+                            <label>Referans Ad - Soyad</label>
+                            <input type="text" asp-for="NameSurname" class="form-control" />
+                            <br />
+                            <label>Unvan</label>
+                            <input type="text" asp-for="Title" class="form-control" />
+                            <br />
+                            <label>Görsel Linki</label>
+                            <input type="text" asp-for="ImageUrl" class="form-control" id="imgUrl" />
+                            <br />
+                            <img id="projectImg" style="width:250px; border-radius:10px; border: 1px solid #AAA" />
+                            <br />
+                            <br />
+                            <label>Açıklama</label>
+                            <textarea rows="4" class="form-control" asp-for="Description"></textarea>
+                            <br />
+                            <button class="btn btn-success">Ekle</button>&nbsp;&nbsp;
+                            <a asp-controller="Testimonial" asp-action="ListTestimonials" class="btn btn-secondary">Geri Dön</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("imgUrl").addEventListener("input", function(){
+        document.getElementById("projectImg").src = this.value;
+    });
+</script>

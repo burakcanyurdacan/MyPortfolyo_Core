@@ -1,0 +1,47 @@
+﻿@model List<Portfolio>
+@{
+    ViewData["Title"] = "ListPortfolios";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <h4 class="page-title">Projelerim</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Proje Listesi</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-sub">
+                            Projelerle ilgili işlemleri aşağıdaki panelden yapabilirsiniz.
+                        </div>
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-md-4">
+                                    <div class="card shadow mb-4">
+                                        <img src="@item.ImageUrl" class="card-img-top" style="height:200px; object-fit:cover;" />
+
+                                        <div class="card-body">
+                                            <h5>@item.Title</h5>
+                                            <p class="text-muted">@item.SubTitle</p>
+                                            <p>@item.Description</p>
+
+                                            <a href="@item.Url" target="_blank" class="btn btn-sm btn-info">Projeye Git</a>
+                                            <a href="/Portfolio/UpdatePortfolio/@item.PortfolioId" class="btn btn-sm btn-success">Düzenle</a>
+                                            <a href="/Portfolio/DeletePortfolio/@item.PortfolioId" class="btn btn-sm btn-danger">Sil</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <hr />
+                        <a href="/Portfolio/AddPortfolio" class="btn btn-primary"><i class="la la-plus"></i>&nbsp;Yeni Proje Ekle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

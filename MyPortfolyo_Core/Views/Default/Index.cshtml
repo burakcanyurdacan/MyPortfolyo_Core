@@ -1,0 +1,56 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<!-- Head kısmı 
+================================================== -->
+@await Component.InvokeAsync("_HeadComponentPartial")
+<!-- end head -->
+
+<body id="top">
+
+    <!-- header kısmı
+    ================================================== -->
+    @await Component.InvokeAsync("_NavbarComponentPartial")
+    <!-- end header -->
+
+    <!-- home kısmı
+    ================================================== -->
+    @await Component.InvokeAsync("_FeatureComponentPartial")
+    <!-- end home -->
+
+    <!-- about kısmı
+    ================================================== -->
+    @await Component.InvokeAsync("_AboutComponentPartial")
+    <!-- end about -->
+
+    <!-- portfolyo kısmı
+    ================================================== -->
+    @await Component.InvokeAsync("_PortfolioComponentPartial")
+    <!-- end portfolyo -->
+
+    <!-- testimonials
+    ================================================== -->
+    @await Component.InvokeAsync("_TestimonialsComponentPartial")
+    <!-- end testimonials -->
+
+    <!-- s-stats
+    ================================================== -->
+    @await Component.InvokeAsync("_StatisticComponentPartial")
+    <!-- end stats -->
+
+    <!-- s-contact
+    ================================================== -->
+    @await Component.InvokeAsync("_ContactComponentPartial")
+    <!-- end contact -->
+
+    <!-- footer
+    ================================================== -->
+    @await Component.InvokeAsync("_FooterComponentPartial")
+    <!-- end footer -->
+</body>
+
+</html>
