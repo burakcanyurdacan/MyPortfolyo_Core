@@ -3,6 +3,7 @@
     ViewData["Title"] = "Inbox";
     Layout = "~/Views/Layout/Index.cshtml";
     int count = 0;
+    string btnTag, btnAlt = "";
 }
 
 <div class="content">
@@ -23,9 +24,9 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Gönderen</th>
+                                    <th scope="col">E-Posta Adresi</th>
                                     <th scope="col">Konu</th>
                                     <th scope="col">Tarih</th>
-                                    <th scope="col">Mesajı Aç</th>
                                     <th scope="col">Durum</th>
                                     <th scope="col">İşlemler</th>
                                 </tr>
@@ -37,25 +38,29 @@
                                     <tr>
                                         <td>@count</td>
                                         <td>@item.NameSurname</td>
+                                        <td>@item.Mail</td>
                                         <td>@item.Subject</td>
                                         <td>@item.SendDate.ToShortDateString()</td>
-                                        <td>
-                                            <a href="/Message/MessageDetail/@item.MessageId" class="btn btn-primary">Mesajı Aç</a>
-                                        </td>
                                         <td>
                                             @if (item.IsRead == true)
                                             {
                                                 <label class="text-success">(Okundu)&nbsp;&nbsp;</label>
-                                                <a href="/Message/ChangeIsRead/@item.MessageId" class="btn btn-danger">Okunmadı Yap</a>
+                                                @* <a href="/Message/ChangeIsRead/@item.MessageId" class="btn btn-danger">Okunmadı Yap</a> *@
+                                                btnTag = "la la-folder-open";
+                                                btnAlt = "Okunmadı Olarak İşaretle";
                                             }
                                             else
                                             {
                                                 <label class="text-danger">(Okunmadı)&nbsp;&nbsp;</label>
-                                                <a href="/Message/ChangeIsRead/@item.MessageId" class="btn btn-success">Okundu Yap</a>
+                                                @* <a href="/Message/ChangeIsRead/@item.MessageId" class="btn btn-success">Okundu Yap</a> *@
+                                                btnTag = "la la-folder";
+                                                btnAlt = "Okundu Olarak İşaretle";
                                             }
                                         </td>
                                         <td>
-                                            <a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-danger" title="Sil"><i class="la la-trash"></i></a>
+                                            <a href="/Message/MessageDetail/@item.MessageId" class="btn btn-outline-primary" title="Mesajı Aç"><i class="la la-chevron-right"></i></a>
+                                            <a href="/Message/ChangeIsRead/@item.MessageId" class="btn btn-outline-dark" title="@btnAlt"><i class="@btnTag"></i></a>
+                                            <a href="/Message/DeleteMessage/@item.MessageId" class="btn btn-outline-danger" title="Sil"><i class="la la-trash"></i></a>
                                         </td>
                                     </tr>
                                 }

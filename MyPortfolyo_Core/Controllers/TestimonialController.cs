@@ -39,5 +39,20 @@ namespace MyPortfolyo_Core.Controllers
             context.SaveChanges();
             return RedirectToAction("ListTestimonials");
         }
+
+        [HttpGet]
+        public IActionResult UpdateTestimonial(int id)
+        {
+            var value = context.Testimonials.Find(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateTestimonial(Testimonial testimonial)
+        {
+            context.Testimonials.Update(testimonial);
+            context.SaveChanges();
+            return RedirectToAction("ListTestimonials");
+        }
     }
 }

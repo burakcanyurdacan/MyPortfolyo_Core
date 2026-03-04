@@ -13,7 +13,7 @@ namespace MyPortfolyo_Core.Controllers
 
         public IActionResult Inbox()
         {
-            var values = context.Messages.ToList();
+            var values = context.Messages.OrderByDescending(x=>x.SendDate).ToList();
             return View(values);
         }
 
@@ -43,6 +43,12 @@ namespace MyPortfolyo_Core.Controllers
         public IActionResult MessageDetail(int id)
         {
             var value = context.Messages.Find(id);
+
+            //Mesaj detayına girdiği için okundu bilgisi true olmalı.
+            value.IsRead = true;
+            context.Messages.Update(value);
+            context.SaveChanges();
+
             return View(value);
         }
     }
