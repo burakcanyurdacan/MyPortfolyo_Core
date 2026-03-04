@@ -24,8 +24,11 @@
                             <b>Gönderme Tarihi: </b>@Model.SendDate.ToShortDateString()
                             <br /><br />
                             <b>Konu: </b>@Model.Subject
-                            <br /><br /><br />
-                            <b>Mesaj: </b><br />@Model.MessageDetail
+                            <br /><br />
+                            <b>Mesaj: </b>
+                            <div style="white-space:pre-line">
+                                @Model.MessageDetail
+                            </div>
                         </div>
                     </div>
                 </div>
