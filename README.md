@@ -25,7 +25,7 @@ Kullanılan Teknolojiler:
 - ASP.NET Core 6.0
 - Entity Framework Code First
 
-<img width="1851" height="6843" alt="1-Portfolio Anasayfa" src="https://github.com/user-attachments/assets/0842e0ac-5b82-4060-83dd-15f5c7936ea7" /><br/><br/>
+<img alt="1-Portfolio Anasayfa" src="https://github.com/user-attachments/assets/0842e0ac-5b82-4060-83dd-15f5c7936ea7" /><br/><br/>
 <img width="1745" height="1261" alt="2-Dashboard" src="https://github.com/user-attachments/assets/7aaeb474-8a40-4347-a419-4fdb3d524f31" /><br/><br/>
 <img width="1760" height="931" alt="3-ToDoList" src="https://github.com/user-attachments/assets/655bc566-14e7-48f8-abd7-443b9aad09d2" /><br/><br/>
 <img width="1745" height="1280" alt="4-Projeler" src="https://github.com/user-attachments/assets/4d40b331-4f3c-4672-aa87-23174dae774f" /><br/><br/>
