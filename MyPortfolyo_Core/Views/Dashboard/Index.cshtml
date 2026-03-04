@@ -138,73 +138,155 @@
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="la la-folder-open"></i> Son Eklenen Projeler
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Proje Adı</th>
+                                        <th>İşlem</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in ViewBag.recentProjects)
+                                    {
+                                        <tr>
+                                            <td>@item.Title</td>
+                                            <td>
+                                                <a href="/Portfolio/UpdatePortfolio/@item.PortfolioId" class="btn btn-primary btn-sm">
+                                                    <i class="la la-edit"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="/Portfolio/ListPortfolios" class="btn btn-primary btn-sm">
+                                Tümünü Gör <i class="la la-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i class="la la-area-chart"></i> Son Eklenen Yetenekler
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <table class="table mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Başlık</th>
+                                    <th scope="col">Yetenek Değeri</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.lastSkills)
+                                {
+                                    //progValue = item.Value.ToString() + "%";
+                                    <tr>
+                                        <td>@item.Title</td>
+                                        <td>
+                                            <div class="progress">
+                                                <div class="progress-bar bg-success" role="progressbar" style="width: @item.Value.ToString()%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100">@item.Value.ToString()%</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <div class="text-center mt-3">
+                            <a href="/Skill/ListSkills" class="btn btn-success btn-sm">
+                                Tümünü Gör <i class="la la-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <style>
-        .btn-block {
-            padding: 15px;
-            text-align: center;
+<style>
+    .btn-block {
+        padding: 15px;
+        text-align: center;
+    }
+
+        .btn-block i {
+            font-size: 24px;
+            margin-bottom: 5px;
         }
 
-            .btn-block i {
-                font-size: 24px;
-                margin-bottom: 5px;
-            }
-
-            .btn-block span {
-                font-size: 12px;
-                display: block;
-            }
-
-        /* Kartların yüksekliklerini eşitle */
-        .content .row {
-            display: flex;
-            flex-wrap: wrap;
+        .btn-block span {
+            font-size: 12px;
+            display: block;
         }
 
-            .content .row > [class*='col-'] {
-                display: flex;
-                flex-direction: column;
-            }
+    /* Kartların yüksekliklerini eşitle */
+    .content .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-        .content .card {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .content .card-body {
-            flex: 1;
+        .content .row > [class*='col-'] {
             display: flex;
             flex-direction: column;
         }
 
-        /* Tablo ve liste alanlarını genişlet */
-        .table-responsive {
-            flex: 1;
-        }
+    .content .card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
 
-        .list-group {
-            flex: 1;
-        }
+    .content .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
 
-        /* Alt butonları en alta yasla */
-        .card-body .text-center:last-child {
-            margin-top: auto;
-            padding-top: 15px;
-        }
+    /* Tablo ve liste alanlarını genişlet */
+    .table-responsive {
+        flex: 1;
+    }
 
-        /* Boş içerik durumunda kartları ortala */
-        .card-body > p.text-center {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .list-group {
+        flex: 1;
+    }
 
-        /* Hakkımda kartı için özel düzenleme */
-        .card-body > div > .col-md-12 {
-            display: flex;
-        }
-    </style>
+    /* Alt butonları en alta yasla */
+    .card-body .text-center:last-child {
+        margin-top: auto;
+        padding-top: 15px;
+    }
+
+    /* Boş içerik durumunda kartları ortala */
+    .card-body > p.text-center {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Hakkımda kartı için özel düzenleme */
+    .card-body > div > .col-md-12 {
+        display: flex;
+    }
+</style>

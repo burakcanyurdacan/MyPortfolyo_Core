@@ -24,6 +24,8 @@ namespace MyPortfolyo_Core.Controllers
             ViewBag.taskPercentage = CalcTaskPercent();
             ViewBag.taskList = context.ToDoLists.ToList();
             ViewBag.aboutInfo = context.Abouts.FirstOrDefault();
+            ViewBag.recentProjects = context.Portfolios.ToList();
+            ViewBag.lastSkills = context.Skills.OrderByDescending(x => x.SkillId).Take(6).ToList();
             return View();
         }
     }
